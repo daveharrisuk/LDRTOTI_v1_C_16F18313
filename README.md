@@ -1,0 +1,2 @@
+# LDRTOTI_v1_C_16F18313
+Firmware for MERG LDRTOTI PCB(RevA ) using PIC16F18313 and MPLAB X and XC8
