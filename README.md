@@ -7,5 +7,6 @@ A port of Julian Coles LDRTOTI ASM (27-May-2022, MPLAB v8.91, PIC12F683) into C 
 - MCU  :        PIC16F18313 
 - Programming:  LVP using PICKIT 4
 - PCB :    MERG LDRTOTI revA (by Dave McCabe for SOIC8 chip)
-![schematc](https://github.com/daveharrisuk/LDRTOTI_v1_C_16F18313/blob/main/docs/PCB_schematic.jpg)
-![PCB image](https://github.com/daveharrisuk/LDRTOTI_v1_C_16F18313/blob/main/docs/PCB_3Dview.jpg)
+![schematic](https://github.com/daveharrisuk/LDRTOTI_v1_C_16F18313/blob/main/docs/PCB_schematic.jpg)
+![PCB top view](https://github.com/daveharrisuk/LDRTOTI_v1_C_16F18313/blob/main/docs/PCB_TopView.jpg)
+![PCB 3D view](https://github.com/daveharrisuk/LDRTOTI_v1_C_16F18313/blob/main/docs/PCB_3Dview.jpg)
