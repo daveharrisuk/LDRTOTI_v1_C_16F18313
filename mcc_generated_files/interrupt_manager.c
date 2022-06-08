@@ -1,26 +1,26 @@
 /**
-  Generated Pin Manager File
+  Generated Interrupt Manager Source File
 
-  Company:
+  @Company:
     Microchip Technology Inc.
 
-  File Name:
-    pin_manager.c
+  @File Name:
+    interrupt_manager.c
 
-  Summary:
-    This is the Pin Manager file generated using PIC10 / PIC12 / PIC16 / PIC18 MCUs
+  @Summary:
+    This is the Interrupt Manager file generated using PIC10 / PIC12 / PIC16 / PIC18 MCUs
 
-  Description:
-    This header file provides implementations for pin APIs for all pins selected in the GUI.
+  @Description:
+    This header file provides implementations for global interrupt handling.
+    For individual peripheral handlers please see the peripheral driver for
+    all modules selected in the GUI.
     Generation Information :
         Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.7
         Device            :  PIC16F18313
-        Driver Version    :  2.11
+        Driver Version    :  2.04
     The generated drivers are tested against the following:
-        Compiler          :  XC8 2.31 and above
-        MPLAB             :  MPLAB X 5.45
-
-    Copyright (c) 2013 - 2015 released Microchip Technology Inc.  All rights reserved.
+        Compiler          :  XC8 2.31 and above or later
+        MPLAB 	          :  MPLAB X 5.45
 */
 
 /*
@@ -46,61 +46,21 @@
     SOFTWARE.
 */
 
-#include "pin_manager.h"
+#include "interrupt_manager.h"
+#include "mcc.h"
 
-
-
-
-
-void PIN_MANAGER_Initialize(void)
+void __interrupt() INTERRUPT_InterruptManager (void)
 {
-    /**
-    LATx registers
-    */
-    LATA = 0x00;
-
-    /**
-    TRISx registers
-    */
-    TRISA = 0x13;
-
-    /**
-    ANSELx registers
-    */
-    ANSELA = 0x10;
-
-    /**
-    WPUx registers
-    */
-    WPUA = 0x03;
-
-    /**
-    ODx registers
-    */
-    ODCONA = 0x00;
-
-    /**
-    SLRCONx registers
-    */
-    SLRCONA = 0x37;
-
-    /**
-    INLVLx registers
-    */
-    INLVLA = 0x3F;
-
-
-
-
-
-   
-    
+    // interrupt handler
+    if(PIE0bits.TMR0IE == 1 && PIR0bits.TMR0IF == 1)
+    {
+        TMR0_ISR();
+    }
+    else
+    {
+        //Unhandled Interrupt
+    }
 }
-  
-void PIN_MANAGER_IOC(void)
-{   
-}
-
 /**
  End of File
 */

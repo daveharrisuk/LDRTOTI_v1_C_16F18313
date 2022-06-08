@@ -55,6 +55,7 @@ void SYSTEM_Initialize(void)
     OSCILLATOR_Initialize();
     WDT_Initialize();
     ADC_Initialize();
+    TMR0_Initialize();
 }
 
 void OSCILLATOR_Initialize(void)
@@ -65,14 +66,10 @@ void OSCILLATOR_Initialize(void)
     OSCCON3 = 0x00;
     // LFOEN disabled; ADOEN disabled; SOSCEN disabled; EXTOEN disabled; HFOEN disabled; 
     OSCEN = 0x00;
-    // HFFRQ 8_MHz; 
-    OSCFRQ = 0x04;
+    // HFFRQ 16_MHz; 
+    OSCFRQ = 0x06;
     // HFTUN 0; 
     OSCTUNE = 0x00;
-    // Wait for PLL to stabilize
-    while(PLLR == 0)
-    {
-    }
 }
 
 void WDT_Initialize(void)
